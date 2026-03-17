@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Loan Predictor</title>
+
+<style>
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#e9f3f6,#ffffff);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:15px;
+width:420px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h2{text-align:center;margin-bottom:20px;
+     font-family: 'Orbitron', sans-serif;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:20px;
+background:#000000;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.premium-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+
+    background: linear-gradient(90deg, #000000, #06b6d4);
+   background-clip: text;
+-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    letter-spacing: 1px;
+
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px rgba(79,70,229,0.3);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(6,182,212,0.8);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2 class="premium-title">🏦 Loan Approval Predictor</h2>
+
+<form method="POST" action="/predict">
+
+<input type="number" name="no_of_dependencys" placeholder="Dependents" required>
+
+<select name="education">
+<option value="1">Graduate</option>
+<option value="0">Not Graduate</option>
+</select>
+
+<select name="self_employed">
+<option value="1">Self Employed</option>
+<option value="0">Not Self Employed</option>
+</select>
+
+<input type="number" name="income_annum" placeholder="Annual Income" required>
+<input type="number" name="loan_amount" placeholder="Loan Amount" required>
+<input type="number" name="loan_term" placeholder="Loan Term (Years)" required>
+
+<input type="number" name="cibil_score" placeholder="CIBIL Score" required>
+
+<input type="number" name="residential_assets_value" placeholder="Residential Assets" required>
+<input type="number" name="commercial_assets_value" placeholder="Commercial Assets" required>
+<input type="number" name="luxury_assets_value" placeholder="Luxury Assets" required>
+<input type="number" name="bank_asset_value" placeholder="Bank Assets" required>
+
+<button type="submit">Predict Loan Status</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loan Result</title>
+
+<style>
+body{
+font-family:'Segoe UI',sans-serif;
+background:#f3f4f6;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:15px;
+width:420px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.approved{
+color:#16a34a;
+}
+
+.rejected{
+color:#dc2626;
+}
+
+ul{
+text-align:left;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Loan Result</h2>
+
+{% if prediction == "Approved" %}
+<h3 class="approved">✅ Loan Approved</h3>
+{% else %}
+<h3 class="rejected">❌ Loan Rejected</h3>
+
+<h4>Reasons:</h4>
+<ul>
+{% for r in reasons %}
+<li>{{ r }}</li>
+{% endfor %}
+</ul>
+
+<h4>Suggestions:</h4>
+<ul>
+{% for s in suggestions %}
+<li>{{ s }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<hr>
+
+<p><b>📊 Confidence:</b> {{ confidence }}%</p>
+<p><b>📈 Eligibility Score:</b> {{ score }}/100</p>
+<p><b>💰 EMI:</b> ₹{{ emi }} / month</p>
+
+<br>
+<a href="/">⬅ Back to Home</a>
+
+</div>
+
+</body>
+</html>
